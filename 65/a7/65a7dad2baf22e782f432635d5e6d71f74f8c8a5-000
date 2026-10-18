@@ -1,0 +1,12 @@
+# zenray-money-18-october-2026 : rules, append only (18 October 2026)
+
+Standing rules of this project, one line each, loaded automatically at session start. Full history and context: FEEDBACK.md in this folder. A rule that changes gets a new line citing the old one. (18 October 2026)
+
+
+## 18 October 2026 : Règles permanentes ZenRay Money
+
+- **Fidélité visuelle `0.999` League of Legends Hextech Client (18 October 2026)** : reproduire chaque widget des 7 captures (`imglol1.png` à `imglol7.jpg`) avec la police officielle `Beaufort for LoL` (`Medium 500`, `Bold 700`, `Heavy 800`), `AnthropicSerif Medium (500)` pour les nombres et `InterVariable Medium (500)` pour le corps d'interface. Interdiction absolue du `Light (300/350)`. (18 October 2026)
+- **Liaison directe à ZenRay Plan & Google Calendar (18 October 2026)** : le dock droit (`220px`, inspiré du dock `SOCIAL` de `imglol1.png`) affiche en temps réel les créneaux de `ZenRay Plan` synchronisés avec `Google Calendar` (blocs de production matin, livraisons des 4 contrats hebdomadaires, publications quotidiennes, japonais l'après-midi, sport à 17h). (18 October 2026)
+- **Liaison directe à ZenRay Assets & ZenRayStudio (18 October 2026)** : chaque projet `ZenRay Assets` est une carte Champion dans la grille `6×4` (`imglol4.jpg`) avec son niveau de maîtrise, ses publications `PostKit` et son chiffre d'affaires généré (contrats + boutique `zenray.studio`). (18 October 2026)
+- **Gestion d'entreprise, Facturation PDF & Tableur Excel/CSV (18 October 2026)** : le registre `VICTORY` (`imglol6.jpg`) sert de grand-livre comptable multi-colonnes (Contrats, Boutique, Brut, Charges URSSAF, Net, Statut Facture, Export `.xlsx`/`.csv`), complété par la modale Hextech de création de facture/devis (`imglol2.jpg`). (18 October 2026)
+- **Sons SFX Hextech & Tutoriel intégré (18 October 2026)** : chaque interaction (clic, survol, verrouillage d'un contrat `LOCK IN`, encaissement `VICTORY`) déclenche un son Hextech synthétisé (fichiers `.wav` dans `Sources/SFX/` + WebAudio temps réel), et un tutoriel interactif explique le rôle exact de chaque widget. (18 October 2026)
