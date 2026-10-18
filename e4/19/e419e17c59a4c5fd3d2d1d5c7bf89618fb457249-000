@@ -1,0 +1,2048 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ZenRay Money v2 · 0.999 League of Legends Hextech Client (Beaufort for LoL · Plan &amp; Google Calendar · Assets · Factures &amp; Excel) · 18 October 2026</title>
+<style>
+  /* 18 October 2026 : Beaufort for LoL (500/700/800) + AnthropicSerif Medium (500) + InterVariable Medium (500). Zéro Light. */
+  @font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('file:///Users/zenray/.claude/skills/zenray-edit/designs/_shared/fonts/BeaufortforLOL-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('file:///Users/zenray/.claude/skills/zenray-edit/designs/_shared/fonts/BeaufortforLOL-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('file:///Users/zenray/.claude/skills/zenray-edit/designs/_shared/fonts/BeaufortforLOL-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('file:///Users/zenray/.claude/skills/zenray-edit/designs/_shared/fonts/BeaufortforLOL-Heavy.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'InterVariable';
+    src: url('file:///Users/zenray/.claude/skills/zenray-edit/designs/_shared/fonts/InterVariable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'AnthropicSerif';
+    src: url('file:///Users/zenray/.claude/skills/zenray-edit/designs/_shared/fonts/AnthropicSerif-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'AnthropicMono';
+    src: url('file:///Users/zenray/.claude/skills/zenray-edit/designs/_shared/fonts/AnthropicMono-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  :root {
+    --zr-police-sans: 'InterVariable', 'Hiragino Sans W4', 'Hiragino Sans', sans-serif;
+    --zr-police-serif: 'AnthropicSerif', 'Hiragino Mincho ProN W3', serif;
+    --zr-police-mono: 'AnthropicMono', ui-monospace, monospace;
+    --zr-police-lol: 'Beaufort for LoL', 'AnthropicSerif', serif;
+    --zr-poids-sans: 500;
+    --zr-poids-serif: 500;
+    --zr-poids-nombres: 500;
+
+    /* Paramètres HDA (18 October 2026) */
+    --hex-bevel: 10px;
+    --hex-dial-size: 290px;
+    --hex-dock-w: 236px;
+    --hex-gold-glow: 0.28;
+    --urssaf-rate: 21.2;
+
+    /* Palette officielle Hextech League of Legends mesurée sur imglol1..7 */
+    --lol-bg-deep: #010A13;
+    --lol-bg-panel: #06111C;
+    --lol-bg-card: #0A1826;
+    --lol-gold-bright: #F0E6D2;
+    --lol-gold: #C8AA6E;
+    --lol-gold-mid: #C89B3C;
+    --lol-gold-dark: #785A28;
+    --lol-cyan-bright: #CDF5F4;
+    --lol-cyan: #0AC8B9;
+    --lol-cyan-deep: #005A82;
+    --lol-green: #1EA866;
+    --lol-muted: #A09B8C;
+    --lol-border-gold: rgba(200, 170, 110, 0.48);
+    --lol-border-subtle: rgba(200, 170, 110, 0.22);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #07090D;
+    color: var(--lol-gold-bright);
+    font-family: var(--zr-police-sans);
+    font-weight: 500;
+    padding: 18px 22px 56px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .num {
+    font-family: var(--zr-police-serif);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .lol-title-gold {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F0E6D2 30%, #C8AA6E 72%, #785A28 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* =========================================================
+     BARRE HDA PARAMÉTRIQUE + SYNTHÉTISEUR AUDIO HEXTECH
+     ========================================================= */
+  .hda-bar {
+    max-width: 1480px;
+    margin: 0 auto 18px;
+    background: #08121E;
+    border: 1px solid var(--lol-border-gold);
+    border-radius: 10px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+  }
+
+  .hda-left {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hda-brand {
+    font-family: var(--zr-police-lol);
+    font-weight: 800;
+    font-size: 19px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lol-gold-bright);
+  }
+
+  .hda-sub {
+    font-size: 12px;
+    color: var(--lol-muted);
+  }
+
+  .hda-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .s-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: var(--lol-gold-bright);
+  }
+
+  .s-item input[type="range"] {
+    width: 68px;
+    accent-color: var(--lol-gold);
+    cursor: pointer;
+  }
+
+  .hex-chip {
+    background: rgba(10, 200, 185, 0.08);
+    border: 1px solid rgba(200, 170, 110, 0.42);
+    color: var(--lol-gold-bright);
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 11px;
+    cursor: pointer;
+    clip-path: polygon(var(--hex-bevel) 0, 100% 0, 100% calc(100% - var(--hex-bevel)), calc(100% - var(--hex-bevel)) 100%, 0 100%, 0 var(--hex-bevel));
+  }
+
+  .hex-chip.active {
+    background: linear-gradient(180deg, #0AC8B9 0%, #005A82 100%);
+    border-color: var(--lol-cyan-bright);
+    color: #FFFFFF;
+  }
+
+  .hex-copy-btn {
+    background: linear-gradient(180deg, #C8AA6E 0%, #785A28 100%);
+    color: #010A13;
+    border: 1px solid #F0E6D2;
+    padding: 7px 14px;
+    font-family: var(--zr-police-lol);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  /* Pile principale */
+  .stack {
+    max-width: 1480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .design-section {
+    background: #050C14;
+    border: 1px solid var(--lol-border-gold);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+  }
+
+  .design-section.selected {
+    border-color: var(--lol-cyan);
+    box-shadow: 0 0 0 1px var(--lol-cyan), 0 18px 44px rgba(0, 0, 0, 0.75);
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--lol-border-subtle);
+    padding-bottom: 10px;
+  }
+
+  .section-head-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .lol-badge {
+    width: 26px;
+    height: 26px;
+    background: linear-gradient(180deg, #C8AA6E 0%, #785A28 100%);
+    color: #010A13;
+    font-family: var(--zr-police-lol);
+    font-weight: 800;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .section-title {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--lol-gold-bright);
+  }
+
+  .section-sub {
+    font-size: 12px;
+    color: var(--lol-muted);
+  }
+
+  /* =========================================================
+     FENÊTRE ZENRAYPROGRESS + CLIENT HEXTECH 0.999
+     ========================================================= */
+  .zr-client-shell {
+    display: grid;
+    grid-template-columns: 148px 1fr;
+    border: 1px solid #785A28;
+    background: var(--lol-bg-deep);
+    min-height: 610px;
+    overflow: hidden;
+  }
+
+  /* Sidebar gauche de ZenRayProgress avec l'entrée Money active */
+  .zr-sidebar {
+    background: #080B10;
+    border-right: 1px solid rgba(200, 170, 110, 0.22);
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+
+  .mac-dots {
+    display: flex;
+    gap: 6px;
+    padding: 2px 6px 14px;
+  }
+
+  .mac-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .zr-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .zr-nav-item {
+    padding: 7px 10px;
+    border-radius: 6px;
+    color: #9E9A8E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .zr-nav-item.active {
+    background: linear-gradient(90deg, rgba(200, 170, 110, 0.22) 0%, rgba(10, 200, 185, 0.08) 100%);
+    border-left: 2px solid var(--lol-gold);
+    color: var(--lol-gold-bright);
+  }
+
+  .zr-side-foot {
+    padding: 8px;
+    background: rgba(200, 170, 110, 0.06);
+    border: 1px solid rgba(200, 170, 110, 0.20);
+    font-size: 10.5px;
+    color: var(--lol-muted);
+    line-height: 1.4;
+  }
+
+  /* Corps du client League of Legends (Topbar + Main + Right Social/Plan Dock) */
+  .lol-client-body {
+    display: grid;
+    grid-template-rows: 58px 1fr;
+    background:
+      radial-gradient(circle at 46% 42%, rgba(10, 200, 185, 0.14) 0%, rgba(0, 90, 130, 0.10) 34%, rgba(1, 10, 19, 0.96) 74%),
+      linear-gradient(180deg, #04101C 0%, #010A13 100%);
+  }
+
+  /* W01-W03 : TOPBAR HEXTECH (imglol1.png 0.999) */
+  .lol-topbar {
+    background: linear-gradient(180deg, #0B1622 0%, #040C14 100%);
+    border-bottom: 2px solid #785A28;
+    display: grid;
+    grid-template-columns: auto 1fr auto var(--hex-dock-w);
+    align-items: center;
+    padding-left: 12px;
+  }
+
+  /* Bouton PLAY / PRODUIRE biseauté cyan & or */
+  .lol-play-cluster {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-right: 18px;
+  }
+
+  .lol-crest {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #C8AA6E 0%, #785A28 100%);
+    border: 2px solid #F0E6D2;
+    color: #010A13;
+    font-family: var(--zr-police-lol);
+    font-weight: 800;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 0 12px rgba(200, 170, 110, 0.5);
+  }
+
+  .lol-play-btn {
+    margin-left: -10px;
+    padding: 8px 24px 8px 22px;
+    background: linear-gradient(180deg, #13B3BA 0%, #056A8A 55%, #02425B 100%);
+    border: 2px solid #C8AA6E;
+    color: #F0E6D2;
+    font-family: var(--zr-police-lol);
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+    box-shadow: inset 0 0 10px rgba(205, 245, 244, 0.45);
+  }
+
+  .lol-nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    height: 100%;
+  }
+
+  .lol-tab {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #A09B8C;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .lol-tab.active {
+    color: #F0E6D2;
+    background: linear-gradient(180deg, rgba(200, 170, 110, 0.18) 0%, rgba(200, 170, 110, 0) 100%);
+  }
+
+  .lol-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #F0E6D2;
+    box-shadow: 0 0 8px #C8AA6E;
+  }
+
+  /* Compteurs RP (Semaine 1 250 €) & BE (Cumul Cap 2027) */
+  .lol-currencies {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px;
+    border-left: 1px solid rgba(200, 170, 110, 0.25);
+  }
+
+  .curr-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .curr-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: #F0E6D2;
+  }
+
+  .dot-rp {
+    width: 9px;
+    height: 9px;
+    transform: rotate(45deg);
+    background: #C89B3C;
+    border: 1px solid #F0E6D2;
+  }
+
+  .dot-be {
+    width: 9px;
+    height: 9px;
+    transform: rotate(45deg);
+    background: #0AC8B9;
+    border: 1px solid #CDF5F4;
+  }
+
+  /* En-tête du Dock Social / Plan en haut à droite */
+  .lol-summoner-head {
+    height: 100%;
+    background: #060E17;
+    border-left: 1px solid rgba(200, 170, 110, 0.32);
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .summoner-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #C8AA6E;
+    background: radial-gradient(circle, #0A3246 0%, #010A13 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--zr-police-serif);
+    font-size: 11px;
+    color: #F0E6D2;
+    position: relative;
+  }
+
+  .summoner-lvl {
+    position: absolute;
+    bottom: -4px;
+    background: #010A13;
+    border: 1px solid #C8AA6E;
+    border-radius: 8px;
+    padding: 0 5px;
+    font-size: 9px;
+    color: #C8AA6E;
+  }
+
+  .summoner-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .summoner-name {
+    font-size: 12.5px;
+    color: #F0E6D2;
+  }
+
+  .summoner-status {
+    font-size: 10.5px;
+    color: #1EA866;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .summoner-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1EA866;
+  }
+
+  /* =========================================================
+     CORPS CENTRAL DESIGN A : CHOOSE YOUR CONTRACT (imglol3.jpg + imglol1.png)
+     ========================================================= */
+  .lol-stage-with-dock {
+    display: grid;
+    grid-template-columns: 1fr var(--hex-dock-w);
+    min-height: 552px;
+  }
+
+  .lol-loadout-stage {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  /* En-tête angulaire CHOOSE YOUR LOADOUT! 62 (imglol3.jpg) */
+  .loadout-banner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .loadout-title {
+    font-family: var(--zr-police-lol);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #F0E6D2;
+  }
+
+  .loadout-sub {
+    font-size: 12px;
+    color: var(--lol-cyan);
+  }
+
+  .cyan-timer-line {
+    width: 360px;
+    height: 3px;
+    background: rgba(200, 170, 110, 0.20);
+    position: relative;
+  }
+
+  .cyan-timer-fill {
+    width: 75%;
+    height: 100%;
+    background: linear-gradient(90deg, #005A82 0%, #0AC8B9 100%);
+    box-shadow: 0 0 8px #0AC8B9;
+  }
+
+  /* Grille 3 colonnes : 4 Contrats Hebdo (gauche) + Cadran Radial Or 1 250 € (centre) + Cartes Boutique & Objectif 5 000 € (droite) */
+  .loadout-main-grid {
+    display: grid;
+    grid-template-columns: 270px 1fr 270px;
+    gap: 18px;
+    align-items: center;
+  }
+
+  /* W08 : Les 4 Slots Contrats de la Semaine (imglol3.jpg colonne gauche) */
+  .contract-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .slot-kicker {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lol-gold);
+    margin-bottom: 2px;
+  }
+
+  .contract-slot {
+    background: linear-gradient(90deg, rgba(10, 24, 38, 0.92) 0%, rgba(6, 17, 28, 0.65) 100%);
+    border: 1px solid rgba(200, 170, 110, 0.32);
+    border-left: 3px solid var(--lol-gold);
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: 38px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .contract-slot.active-pick {
+    border-color: var(--lol-cyan);
+    border-left: 3px solid var(--lol-cyan);
+    background: linear-gradient(90deg, rgba(10, 200, 185, 0.18) 0%, rgba(6, 17, 28, 0.85) 100%);
+  }
+
+  .slot-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid var(--lol-gold);
+    background: #091E2C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--lol-gold-bright);
+  }
+
+  .slot-info {
+    min-width: 0;
+  }
+
+  .slot-status {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--lol-cyan);
+  }
+
+  .slot-name {
+    font-size: 12px;
+    color: var(--lol-gold-bright);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .slot-amount {
+    font-size: 13px;
+    color: var(--lol-gold);
+  }
+
+  /* W07 : Grand Cadran Circulaire Or Radial (imglol3.jpg centre) */
+  .dial-center-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hex-dial {
+    width: var(--hex-dial-size);
+    height: var(--hex-dial-size);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hex-dial svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 18px rgba(200, 170, 110, var(--hex-gold-glow)));
+  }
+
+  .dial-core {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 18px;
+  }
+
+  .dial-kicker {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lol-cyan);
+  }
+
+  .dial-big-euro {
+    font-size: 30px;
+    color: #FFFFFF;
+    line-height: 1.05;
+  }
+
+  .dial-target-line {
+    font-size: 12px;
+    color: var(--lol-gold);
+  }
+
+  .dial-monthly-pill {
+    margin-top: 4px;
+    padding: 3px 10px;
+    background: rgba(200, 170, 110, 0.14);
+    border: 1px solid rgba(200, 170, 110, 0.45);
+    font-size: 11px;
+    color: var(--lol-gold-bright);
+  }
+
+  /* Colonne droite du stage : Cap 5 000 €/mois + Boutique ZenRayStudio (imglol7.jpg) */
+  .studio-right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .studio-promo-card {
+    background: linear-gradient(135deg, #0D2030 0%, #06101A 100%);
+    border: 1px solid rgba(200, 170, 110, 0.38);
+    padding: 9px 11px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .promo-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .promo-tag {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--lol-cyan);
+  }
+
+  .promo-title {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 12.5px;
+    color: var(--lol-gold-bright);
+  }
+
+  .promo-price {
+    background: rgba(200, 170, 110, 0.15);
+    border: 1px solid var(--lol-gold);
+    padding: 4px 8px;
+    font-size: 12px;
+    color: var(--lol-gold-bright);
+    white-space: nowrap;
+  }
+
+  /* Bas du stage : Carrousel 5 items (imglol3.jpg) + Bouton LOCK IN (imglol4.jpg) */
+  .loadout-bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding-top: 8px;
+    border-top: 1px solid var(--lol-border-subtle);
+  }
+
+  .skin-carousel {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .carousel-thumb {
+    width: 112px;
+    padding: 7px 9px;
+    background: #081521;
+    border: 1px solid rgba(200, 170, 110, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 10.5px;
+  }
+
+  .carousel-thumb.owned {
+    border-color: var(--lol-gold);
+    background: linear-gradient(180deg, rgba(200, 170, 110, 0.18) 0%, #081521 100%);
+  }
+
+  .lock-in-btn {
+    padding: 10px 28px;
+    background: linear-gradient(180deg, #16C8BD 0%, #046380 100%);
+    border: 2px solid #C8AA6E;
+    color: #FFFFFF;
+    font-family: var(--zr-police-lol);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%);
+    box-shadow: 0 0 18px rgba(10, 200, 185, 0.45);
+  }
+
+  /* W04 : DOCK DROIT 236PX : ZENRAY PLAN & GOOGLE CALENDAR (imglol1.png Social Dock 0.999) */
+  .lol-social-dock {
+    background: #040B12;
+    border-left: 1px solid rgba(200, 170, 110, 0.32);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .dock-header {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(200, 170, 110, 0.20);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    color: var(--lol-gold);
+  }
+
+  .dock-groups {
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .dock-group-title {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    color: #A09B8C;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .dock-event {
+    display: grid;
+    grid-template-columns: 8px 1fr;
+    gap: 8px;
+    align-items: start;
+    padding: 5px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 11px;
+  }
+
+  .ev-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-top: 4px;
+  }
+
+  .ev-title {
+    color: #F0E6D2;
+    line-height: 1.25;
+  }
+
+  .ev-time {
+    font-size: 10px;
+    color: #A09B8C;
+  }
+
+  .dock-bottom-bar {
+    padding: 8px 10px;
+    border-top: 1px solid rgba(200, 170, 110, 0.28);
+    background: #07121E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--lol-gold);
+  }
+
+  /* =========================================================
+     DESIGN B : GRILLE 6×4 ZENRAY ASSETS (imglol4.jpg) + RADAR 5 AXES (imglol5.jpg)
+     ========================================================= */
+  .assets-split-stage {
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .champ-grid-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .champ-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--lol-border-subtle);
+    font-size: 11.5px;
+    color: var(--lol-gold);
+  }
+
+  .champ-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .champ-tile {
+    background: linear-gradient(180deg, #0D2235 0%, #050E17 100%);
+    border: 1px solid rgba(200, 170, 110, 0.42);
+    padding: 24px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+    position: relative;
+    cursor: pointer;
+    min-height: 108px;
+  }
+
+  .champ-tile.selected-tile {
+    border: 1.5px solid var(--lol-gold-bright);
+    box-shadow: inset 0 0 12px rgba(10, 200, 185, 0.35);
+  }
+
+  .chest-badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(10, 200, 185, 0.20);
+    border: 1px solid var(--lol-cyan);
+    color: var(--lol-cyan-bright);
+    font-size: 8.5px;
+    padding: 1px 5px;
+    line-height: 1.2;
+  }
+
+  .champ-cat {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--lol-muted);
+  }
+
+  .champ-name {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--lol-gold-bright);
+    line-height: 1.2;
+  }
+
+  .champ-rev {
+    font-size: 12px;
+    color: var(--lol-gold);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Panneau Détail Champion + Radar 5 axes (imglol5.jpg) */
+  .warwick-detail-card {
+    background: linear-gradient(160deg, #091B2A 0%, #030A12 100%);
+    border: 1px solid var(--lol-gold);
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .ww-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .ww-title {
+    font-family: var(--zr-police-lol);
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--lol-gold-bright);
+  }
+
+  .ww-epithet {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--lol-gold);
+  }
+
+  .ww-radar-row {
+    display: grid;
+    grid-template-columns: 138px 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .style-slider-track {
+    height: 6px;
+    background: #02080E;
+    border: 1px solid rgba(10, 200, 185, 0.45);
+    position: relative;
+    margin: 6px 0;
+  }
+
+  .style-slider-fill {
+    width: 68%;
+    height: 100%;
+    background: linear-gradient(90deg, #005A82 0%, #0AC8B9 100%);
+  }
+
+  /* =========================================================
+     DESIGN C : GRAND-LIVRE VICTORY 10 COLONNES EXCEL (imglol6.jpg) + MODALE FACTURE PDF (imglol2.jpg)
+     ========================================================= */
+  .victory-stage {
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .victory-banner {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--lol-border-gold);
+    padding-bottom: 8px;
+  }
+
+  .victory-word {
+    font-family: var(--zr-police-lol);
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lol-gold-bright);
+  }
+
+  .lol-ledger-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11.5px;
+  }
+
+  .lol-ledger-table th {
+    text-align: left;
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--lol-muted);
+    padding: 7px 8px;
+    border-bottom: 1px solid rgba(200, 170, 110, 0.32);
+  }
+
+  .lol-ledger-table td {
+    padding: 7px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #DED9CE;
+  }
+
+  .lol-ledger-table tr.group-row td {
+    background: rgba(200, 170, 110, 0.10);
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lol-gold);
+    font-size: 10.5px;
+  }
+
+  .lol-ledger-table tr.highlight-me td {
+    background: rgba(200, 170, 110, 0.16);
+    border-top: 1px solid var(--lol-gold);
+    border-bottom: 1px solid var(--lol-gold);
+    color: #FFFFFF;
+  }
+
+  /* W05 : Modale Hextech à double bordure biseautée (imglol2.jpg) pour Facture PDF */
+  .hextech-modal {
+    background: #040D16;
+    border: 2px solid #C8AA6E;
+    outline: 1px solid #785A28;
+    outline-offset: -6px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+  }
+
+  .modal-title {
+    font-family: var(--zr-police-lol);
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lol-gold-bright);
+    text-align: center;
+    border-bottom: 1px solid rgba(200, 170, 110, 0.28);
+    padding-bottom: 8px;
+  }
+
+  .f-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--lol-muted);
+  }
+
+  .f-input {
+    background: #01080E;
+    border: 1px solid #785A28;
+    color: #F0E6D2;
+    padding: 7px 9px;
+    font-family: var(--zr-police-sans);
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  .modal-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  /* =========================================================
+     TUTORIEL COMPLET UX & FONCTIONNEL (POURQUOI CHAQUE WIDGET EXISTE)
+     ========================================================= */
+  .tutorial-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .tut-card {
+    background: #08131F;
+    border: 1px solid rgba(200, 170, 110, 0.35);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .tut-step {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lol-cyan);
+  }
+
+  .tut-title {
+    font-family: var(--zr-police-lol);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--lol-gold-bright);
+  }
+
+  .tut-body {
+    font-size: 11.5px;
+    line-height: 1.48;
+    color: #C9C4B6;
+  }
+</style>
+</head>
+<body>
+
+  <!-- BARRE HDA + CONTRÔLEUR SFX -->
+  <header class="hda-bar">
+    <div class="hda-left">
+      <h1 class="hda-brand">ZenRay Money v2 · 0.999 League of Legends Hextech</h1>
+      <span class="hda-sub">Beaufort for LoL + AnthropicSerif Medium <span class="num">500</span> · Objectif <span class="num">5 000 € / mois net</span> (<span class="num">1 250 € / sem</span> = <span class="num">4</span> contrats + Boutique) · <span class="num">18</span> October <span class="num">2026</span></span>
+    </div>
+
+    <div class="hda-controls">
+      <button class="hex-chip active" id="btnA" onclick="pickDesign('A')">A · Hub 1 250€/Sem &amp; Plan</button>
+      <button class="hex-chip" id="btnB" onclick="pickDesign('B')">B · Grille Assets &amp; Radar</button>
+      <button class="hex-chip" id="btnC" onclick="pickDesign('C')">C · Excel Victory &amp; Facture PDF</button>
+
+      <div class="s-item">
+        <span>Cadran</span>
+        <input type="range" min="240" max="330" step="10" value="290" oninput="setV('--hex-dial-size', this.value + 'px', 'vDial')" />
+        <span class="num" id="vDial">290px</span>
+      </div>
+
+      <div class="s-item">
+        <span>URSSAF</span>
+        <input type="range" min="11" max="26" step="0.2" value="21.2" oninput="updateUrssaf(this.value)" />
+        <span class="num" id="vUrssaf">21.2%</span>
+      </div>
+
+      <button class="hex-chip active" id="sfxBtn" onclick="playHexSound('victory')">🔊 Tester SFX Victory</button>
+      <button class="hex-copy-btn" id="copyBtn" onclick="copyChoice()">Copier le choix</button>
+    </div>
+  </header>
+
+  <main class="stack">
+
+    <!-- =========================================================
+         DESIGN A : HUB HEXTECH COMPLET (IMGLOL1 + IMGLOL3 + IMGLOL7)
+         ========================================================= -->
+    <section class="design-section selected" id="secA" onclick="pickDesign('A')">
+      <div class="section-head">
+        <div class="section-head-left">
+          <span class="lol-badge">A</span>
+          <h2 class="section-title">Design A · Hub Hextech 0.999 « Choose Your Contract! 1 250 € / Semaine » (imglol1 + imglol3 + imglol7)</h2>
+          <span class="section-sub">Cadran radial or 1 250 €/semaine, les 4 slots de contrats à gauche, les ventes Boutique ZenRayStudio à droite, et le dock Google Calendar + ZenRay Plan en direct.</span>
+        </div>
+      </div>
+
+      <div class="zr-client-shell">
+        <!-- Sidebar gauche ZenRayProgress -->
+        <aside class="zr-sidebar">
+          <div>
+            <div class="mac-dots">
+              <span style="background:#FF5F56;"></span>
+              <span style="background:#FFBD2E;"></span>
+              <span style="background:#27C93F;"></span>
+            </div>
+            <div class="zr-nav">
+              <div class="zr-nav-item"><span>Create</span></div>
+              <div class="zr-nav-item"><span>Progress</span></div>
+              <div class="zr-nav-item"><span>Plan</span><span class="num">4</span></div>
+              <div class="zr-nav-item"><span>Assets</span><span class="num">16</span></div>
+              <div class="zr-nav-item"><span>Books</span><span class="num">5</span></div>
+              <div class="zr-nav-item active"><span>Money</span><span class="num">89%</span></div>
+              <div class="zr-nav-item"><span>Sport</span></div>
+            </div>
+          </div>
+          <div class="zr-side-foot">
+            <strong>Cap Japon 2027</strong><br/>
+            <span class="num">6 450 € / 10 000 €</span> min<br/>
+            Cible : <span class="num">20 000 €</span>
+          </div>
+        </aside>
+
+        <!-- Client League of Legends 0.999 -->
+        <div class="lol-client-body">
+          <!-- W01-W03 : Barre de navigation Hextech (imglol1.png) -->
+          <div class="lol-topbar">
+            <div class="lol-play-cluster">
+              <div class="lol-crest">Z</div>
+              <button class="lol-play-btn" onclick="event.stopPropagation(); playHexSound('lockin')">PRODUIRE</button>
+            </div>
+
+            <div class="lol-nav-tabs">
+              <div class="lol-tab active" onmouseenter="playHexSound('hover')">CONTRATS (4/SEM)</div>
+              <div class="lol-tab" onmouseenter="playHexSound('hover')">ASSETS CHAMPIONS</div>
+              <div class="lol-tab" onmouseenter="playHexSound('hover')">BOUTIQUE STUDIO</div>
+              <div class="lol-tab" onmouseenter="playHexSound('hover')">COMPTA &amp; EXCEL</div>
+              <div class="lol-tab" onmouseenter="playHexSound('hover')">FACTURES PDF</div>
+            </div>
+
+            <div class="lol-currencies">
+              <div class="curr-block">
+                <div class="curr-row"><span class="dot-rp"></span><span class="num" id="topWeeklyNet">1 117,50 €</span></div>
+                <span style="font-size:10px; color:#A09B8C;">Semaine / <span class="num">1 250 €</span></span>
+              </div>
+              <div class="curr-block">
+                <div class="curr-row"><span class="dot-be"></span><span class="num">6 450 €</span></div>
+                <span style="font-size:10px; color:#A09B8C;">Trésorerie Nette</span>
+              </div>
+            </div>
+
+            <div class="lol-summoner-head">
+              <div class="summoner-avatar">
+                <span>ZR</span>
+                <span class="summoner-lvl num">42</span>
+              </div>
+              <div class="summoner-meta">
+                <span class="summoner-name">Matthieu · ZenRay</span>
+                <span class="summoner-status">Google Cal + Plan synchronisés</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage principal + Dock droit Plan/Calendar -->
+          <div class="lol-stage-with-dock">
+            <div class="lol-loadout-stage">
+              <div class="loadout-banner">
+                <div class="loadout-title">CHOOSE YOUR CONTRACT! · SEMAINE <span class="num">42</span></div>
+                <div class="loadout-sub"><span class="num">3</span> CONTRATS SUR <span class="num">4</span> ENCAISSÉS (<span class="num">937,50 €</span>) + BOUTIQUE ZENRAY.STUDIO (<span class="num">+180 €</span>)</div>
+                <div class="cyan-timer-line"><div class="cyan-timer-fill" id="weeklyBarFill" style="width:89%;"></div></div>
+              </div>
+
+              <div class="loadout-main-grid">
+                <!-- Colonne gauche : les 4 Contrats de la Semaine (imglol3.jpg) -->
+                <div class="contract-slots">
+                  <div class="slot-kicker">4 CONTRATS HEBDOMADAIRES (4 × 312,50 € NET)</div>
+
+                  <div class="contract-slot" onclick="event.stopPropagation(); playHexSound('click')">
+                    <div class="slot-avatar">C1</div>
+                    <div class="slot-info">
+                      <div class="slot-status" style="color:#1EA866;">PAYÉ · FA-2026-041</div>
+                      <div class="slot-name">HDA Procedural Cliff System</div>
+                    </div>
+                    <div class="slot-amount num">+350,00 €</div>
+                  </div>
+
+                  <div class="contract-slot" onclick="event.stopPropagation(); playHexSound('click')">
+                    <div class="slot-avatar">C2</div>
+                    <div class="slot-info">
+                      <div class="slot-status" style="color:#1EA866;">PAYÉ · FA-2026-042</div>
+                      <div class="slot-name">Copernicus Peeling Wood PBR</div>
+                    </div>
+                    <div class="slot-amount num">+312,50 €</div>
+                  </div>
+
+                  <div class="contract-slot" onclick="event.stopPropagation(); playHexSound('click')">
+                    <div class="slot-avatar">C3</div>
+                    <div class="slot-info">
+                      <div class="slot-status">FACTURÉ · ENCAISSÉ</div>
+                      <div class="slot-name">APEX Rig &amp; Unreal Retarget</div>
+                    </div>
+                    <div class="slot-amount num">+275,00 €</div>
+                  </div>
+
+                  <div class="contract-slot active-pick" onclick="event.stopPropagation(); lockInContract4()">
+                    <div class="slot-avatar" style="border-color:#0AC8B9; color:#0AC8B9;">C4</div>
+                    <div class="slot-info">
+                      <div class="slot-status" id="c4Status">PICKING... · CRÉNEAU PLAN 08:30</div>
+                      <div class="slot-name">Contrat #4 · Pack Shader / Studio</div>
+                    </div>
+                    <div class="slot-amount num" id="c4Amount">+312,50 €</div>
+                  </div>
+                </div>
+
+                <!-- Centre : Grand Cadran Radial Or 0.999 (imglol3.jpg) -->
+                <div class="dial-center-wrap">
+                  <div class="hex-dial">
+                    <svg viewBox="0 0 300 300" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#F0E6D2" />
+                          <stop offset="55%" stop-color="#C8AA6E" />
+                          <stop offset="100%" stop-color="#785A28" />
+                        </linearGradient>
+                        <linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#CDF5F4" />
+                          <stop offset="50%" stop-color="#0AC8B9" />
+                          <stop offset="100%" stop-color="#005A82" />
+                        </linearGradient>
+                      </defs>
+                      <!-- Anneaux Hextech externes -->
+                      <circle cx="150" cy="150" r="142" fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.85" />
+                      <circle cx="150" cy="150" r="133" fill="none" stroke="#785A28" stroke-width="1" stroke-dasharray="3 5" />
+                      <circle cx="150" cy="150" r="122" fill="none" stroke="rgba(200,170,110,0.18)" stroke-width="10" />
+                      <!-- Arc de progression cyan (89% de 1 250 €) -->
+                      <circle id="dialArc" cx="150" cy="150" r="122" fill="none" stroke="url(#cyanGrad)" stroke-width="10"
+                              stroke-dasharray="682 766" stroke-linecap="butt" transform="rotate(-90 150 150)" />
+                      <!-- Losanges cardinaux or -->
+                      <polygon points="150,2 155,10 150,18 145,10" fill="url(#goldGrad)" />
+                      <polygon points="298,150 290,155 282,150 290,145" fill="url(#goldGrad)" />
+                      <polygon points="150,298 155,290 150,282 145,290" fill="url(#goldGrad)" />
+                      <polygon points="2,150 10,155 18,150 10,145" fill="url(#goldGrad)" />
+                      <circle cx="150" cy="150" r="104" fill="#030D17" stroke="url(#goldGrad)" stroke-width="1.5" />
+                    </svg>
+                    <div class="dial-core">
+                      <span class="dial-kicker">REVENU NET SEMAINE 42</span>
+                      <div class="dial-big-euro num" id="dialEuroText">1 117,50 €</div>
+                      <div class="dial-target-line">Cible : <span class="num">1 250,00 € / sem</span> (<span class="num" id="dialPctText">89%</span>)</div>
+                      <div class="dial-monthly-pill">Rythme : <span class="num">4 470 € / 5 000 €</span> net/mois</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Colonne droite : Ventes Boutique ZenRayStudio (imglol7.jpg) -->
+                <div class="studio-right-col">
+                  <div class="slot-kicker">BOUTIQUE ZENRAY.STUDIO (+180 € CETTE SEMAINE)</div>
+
+                  <div class="studio-promo-card">
+                    <div class="promo-left">
+                      <span class="promo-tag">PACK COPERNICUS · 2 VENTES</span>
+                      <span class="promo-title">Peeling Wood &amp; Bark PBR</span>
+                    </div>
+                    <span class="promo-price num">+98,00 €</span>
+                  </div>
+
+                  <div class="studio-promo-card">
+                    <div class="promo-left">
+                      <span class="promo-tag">HDA HOUDINI 22 · 1 VENTE</span>
+                      <span class="promo-title">Japanese Temple Roof HDA</span>
+                    </div>
+                    <span class="promo-price num">+82,00 €</span>
+                  </div>
+
+                  <div class="studio-promo-card">
+                    <div class="promo-left">
+                      <span class="promo-tag">APP MACOS NATIVE · PRÊT</span>
+                      <span class="promo-title">ZenRay ColorPicker Pro</span>
+                    </div>
+                    <span class="promo-price num">19,00 €</span>
+                  </div>
+
+                  <div class="studio-promo-card">
+                    <div class="promo-left">
+                      <span class="promo-tag">MULTIPLICATEUR POSTKIT</span>
+                      <span class="promo-title"><span class="num">6 / 7</span> Preuves Publiées</span>
+                    </div>
+                    <span class="promo-price num">+42% vues</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Barre inférieure : Carrousel Assets (imglol3.jpg) + Bouton LOCK IN -->
+              <div class="loadout-bottom-bar">
+                <div class="skin-carousel">
+                  <div class="carousel-thumb owned">
+                    <span style="color:#C8AA6E;">ACTIF · ASSETS</span>
+                    <strong>zenray-houdini</strong>
+                  </div>
+                  <div class="carousel-thumb owned">
+                    <span style="color:#C8AA6E;">ACTIF · ASSETS</span>
+                    <strong>zenray-colorpicker</strong>
+                  </div>
+                  <div class="carousel-thumb owned">
+                    <span style="color:#C8AA6E;">ACTIF · ASSETS</span>
+                    <strong>zenray-books</strong>
+                  </div>
+                  <div class="carousel-thumb owned">
+                    <span style="color:#0AC8B9;">NOUVEAU · CLOUD</span>
+                    <strong>zenray-money</strong>
+                  </div>
+                </div>
+
+                <button class="lock-in-btn" onclick="event.stopPropagation(); lockInContract4()">LOCK IN · VALIDER CONTRAT #4 (+312,50 €)</button>
+              </div>
+            </div>
+
+            <!-- W04 : Dock Droit 236px : ZENRAY PLAN & GOOGLE CALENDAR (imglol1.png Social Dock) -->
+            <aside class="lol-social-dock">
+              <div>
+                <div class="dock-header">
+                  <span>PLAN &amp; GOOGLE CALENDAR</span>
+                  <span class="num" style="color:#0AC8B9;">LIVE</span>
+                </div>
+
+                <div class="dock-groups">
+                  <div>
+                    <div class="dock-group-title">▼ AUJOURD'HUI · 18 OCT (4/4)</div>
+                    <div class="dock-event">
+                      <span class="ev-dot" style="background:#1EA866;"></span>
+                      <div>
+                        <div class="ev-title">Bloc Contrat #4 (Houdini/UE)</div>
+                        <div class="ev-time num">08:30 - 11:30 · Cible +312,50 €</div>
+                      </div>
+                    </div>
+                    <div class="dock-event">
+                      <span class="ev-dot" style="background:#0AC8B9;"></span>
+                      <div>
+                        <div class="ev-title">PostKit · Preuve du Jour</div>
+                        <div class="ev-time num">11:30 - 12:15 · Atelier Ouvert</div>
+                      </div>
+                    </div>
+                    <div class="dock-event">
+                      <span class="ev-dot" style="background:#C89B3C;"></span>
+                      <div>
+                        <div class="ev-title">Japonais P0 (Leçon + Drill)</div>
+                        <div class="ev-time num">14:00 - 16:30 · Priorité 0</div>
+                      </div>
+                    </div>
+                    <div class="dock-event">
+                      <span class="ev-dot" style="background:#1EA866;"></span>
+                      <div>
+                        <div class="ev-title">Sport (Séance 45 min)</div>
+                        <div class="ev-time num">17:00 - 17:45 · Régularité 5x</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="dock-group-title">▼ ÉCHÉANCES CONTRATS &amp; FACTURES</div>
+                    <div class="dock-event">
+                      <span class="ev-dot" style="background:#C89B3C;"></span>
+                      <div>
+                        <div class="ev-title">Livraison Contrat #4</div>
+                        <div class="ev-time num">Ven 18:00 · +312,50 € net</div>
+                      </div>
+                    </div>
+                    <div class="dock-event">
+                      <span class="ev-dot" style="background:#0AC8B9;"></span>
+                      <div>
+                        <div class="ev-title">Clôture Hebdo &amp; Export Excel</div>
+                        <div class="ev-time num">Dim 20:00 · Objectif 1 250 €</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dock-bottom-bar">
+                <span>Plan</span>
+                <span>Missions [<span class="num">4</span>]</span>
+                <span>SFX [ON]</span>
+                <span class="num">V26.10</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         DESIGN B : GRILLE 6×4 ZENRAY ASSETS + RADAR DE LEVIER 5 AXES (IMGLOL4 + IMGLOL5)
+         ========================================================= -->
+    <section class="design-section" id="secB" onclick="pickDesign('B')">
+      <div class="section-head">
+        <div class="section-head-left">
+          <span class="lol-badge">B</span>
+          <h2 class="section-title">Design B · Grille « Choose Your Asset! » &amp; Radar de Levier 5 Axes (imglol4 + imglol5 0.999)</h2>
+          <span class="section-sub">Chaque projet ZenRay Assets est un Champion qui cumule des publications PostKit (badge coffre cyan) et du chiffre d'affaires (Contrats + Boutique).</span>
+        </div>
+      </div>
+
+      <div class="zr-client-shell" style="min-height: 460px;">
+        <aside class="zr-sidebar">
+          <div>
+            <div class="mac-dots">
+              <span style="background:#FF5F56;"></span>
+              <span style="background:#FFBD2E;"></span>
+              <span style="background:#27C93F;"></span>
+            </div>
+            <div class="zr-nav">
+              <div class="zr-nav-item"><span>Create</span></div>
+              <div class="zr-nav-item"><span>Plan</span></div>
+              <div class="zr-nav-item"><span>Assets</span><span class="num">16</span></div>
+              <div class="zr-nav-item active"><span>Money</span></div>
+            </div>
+          </div>
+          <div class="zr-side-foot">Assets → Revenus</div>
+        </aside>
+
+        <div class="lol-client-body" style="grid-template-rows: 1fr;">
+          <div class="lol-stage-with-dock" style="min-height: 460px;">
+            <div class="assets-split-stage">
+              <!-- W10 : Grille de sélection des projets ZenRay Assets (imglol4.jpg) -->
+              <div class="champ-grid-panel">
+                <div class="champ-filter-bar">
+                  <span>CHOOSE YOUR ASSET! · TRIÉ PAR REVENU GÉNÉRÉ</span>
+                  <span>Filtre : Tous (<span class="num">8</span> actifs) · Coffre Cyan = PostKit Publié</span>
+                </div>
+
+                <div class="champ-grid">
+                  <div class="champ-tile selected-tile" onclick="event.stopPropagation(); playHexSound('click')">
+                    <span class="chest-badge">POSTKIT ✓</span>
+                    <span class="champ-cat">Houdini 22 · HDA</span>
+                    <div class="champ-name">Modular Cliff &amp; Roof HDA</div>
+                    <div class="champ-rev"><span class="num">+1 680 €</span><span class="num">M7</span></div>
+                  </div>
+
+                  <div class="champ-tile" onclick="event.stopPropagation(); playHexSound('click')">
+                    <span class="chest-badge">POSTKIT ✓</span>
+                    <span class="champ-cat">Copernicus · PBR</span>
+                    <div class="champ-name">Peeling Wood Generator</div>
+                    <div class="champ-rev"><span class="num">+1 240 €</span><span class="num">M7</span></div>
+                  </div>
+
+                  <div class="champ-tile" onclick="event.stopPropagation(); playHexSound('click')">
+                    <span class="chest-badge">POSTKIT ✓</span>
+                    <span class="champ-cat">Unreal 5.5 · Shards</span>
+                    <div class="champ-name">APEX Rig &amp; Mocap Pipeline</div>
+                    <div class="champ-rev"><span class="num">+1 120 €</span><span class="num">M6</span></div>
+                  </div>
+
+                  <div class="champ-tile" onclick="event.stopPropagation(); playHexSound('click')">
+                    <span class="chest-badge">POSTKIT ✓</span>
+                    <span class="champ-cat">Cloudflare · Web</span>
+                    <div class="champ-name">ZenRay Studio Storefront</div>
+                    <div class="champ-rev"><span class="num">+960 €</span><span class="num">M6</span></div>
+                  </div>
+
+                  <div class="champ-tile" onclick="event.stopPropagation(); playHexSound('click')">
+                    <span class="chest-badge">POSTKIT ✓</span>
+                    <span class="champ-cat">macOS Swift · App</span>
+                    <div class="champ-name">ZenRay ColorPicker</div>
+                    <div class="champ-rev"><span class="num">+490 €</span><span class="num">M5</span></div>
+                  </div>
+
+                  <div class="champ-tile" onclick="event.stopPropagation(); playHexSound('click')">
+                    <span class="chest-badge">POSTKIT ✓</span>
+                    <span class="champ-cat">Studio Photo · Edit</span>
+                    <div class="champ-name">StudioPhoto Matthieu</div>
+                    <div class="champ-rev"><span class="num">+420 €</span><span class="num">M5</span></div>
+                  </div>
+
+                  <div class="champ-tile" onclick="event.stopPropagation(); playHexSound('click')">
+                    <span class="chest-badge">PRÊT</span>
+                    <span class="champ-cat">Cloud Reader · Web</span>
+                    <div class="champ-name">ZenRay Books v3</div>
+                    <div class="champ-rev"><span class="num">+280 €</span><span class="num">M4</span></div>
+                  </div>
+
+                  <div class="champ-tile" onclick="event.stopPropagation(); playHexSound('click')">
+                    <span class="chest-badge">ACTIF</span>
+                    <span class="champ-cat">Finance Hextech · App</span>
+                    <div class="champ-name">ZenRay Money</div>
+                    <div class="champ-rev"><span class="num">+260 €</span><span class="num">M5</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- W12-W13 : Panneau Détail Asset + Roue Radar Cyan 5 Axes (imglol5.jpg) -->
+              <div class="warwick-detail-card">
+                <div class="ww-header">
+                  <div>
+                    <div class="ww-epithet">ZENRAY ASSET · MAÎTRISE NIVEAU 7</div>
+                    <div class="ww-title">MODULAR CLIFF &amp; ROOF HDA</div>
+                  </div>
+                  <span class="promo-price num">+1 680 € NET</span>
+                </div>
+
+                <div class="ww-radar-row">
+                  <svg viewBox="0 0 140 140" width="132" height="132" aria-hidden="true">
+                    <circle cx="70" cy="70" r="58" fill="none" stroke="rgba(10,200,185,0.25)" stroke-width="1" />
+                    <circle cx="70" cy="70" r="40" fill="none" stroke="rgba(10,200,185,0.25)" stroke-width="1" />
+                    <circle cx="70" cy="70" r="22" fill="none" stroke="rgba(10,200,185,0.25)" stroke-width="1" />
+                    <line x1="70" y1="12" x2="70" y2="128" stroke="rgba(200,170,110,0.25)" />
+                    <line x1="12" y1="70" x2="128" y2="70" stroke="rgba(200,170,110,0.25)" />
+                    <polygon points="70,16 120,54 102,116 38,112 22,52" fill="rgba(10,200,185,0.28)" stroke="#0AC8B9" stroke-width="2" />
+                  </svg>
+                  <div style="font-size:11.5px; line-height:1.55; color:#D8D3C5;">
+                    <div><strong>Contrats Freelance liés</strong> : <span class="num">4</span> livrés (<span class="num">1 350 €</span>)</div>
+                    <div><strong>Ventes Boutique Studio</strong> : <span class="num">4</span> licences (<span class="num">330 €</span>)</div>
+                    <div><strong>Preuves PostKit publiées</strong> : <span class="num">5</span> posts (<span class="num">18 400</span> vues)</div>
+                    <div style="margin-top:6px; font-size:10.5px; color:#A09B8C;">STYLE : FREELANCE COURT TERME ←→ PRODUIT BOUTIQUE SCALABLE</div>
+                    <div class="style-slider-track"><div class="style-slider-fill"></div></div>
+                  </div>
+                </div>
+
+                <div class="modal-actions">
+                  <button class="hex-chip active" onclick="event.stopPropagation(); playHexSound('click')">PUBLIER PREUVE POSTKIT</button>
+                  <button class="hex-copy-btn" onclick="event.stopPropagation(); playHexSound('lockin')">FACTURER SUR CET ASSET</button>
+                </div>
+              </div>
+            </div>
+
+            <aside class="lol-social-dock">
+              <div class="dock-header">
+                <span>PIPELINE ASSETS → €</span>
+                <span class="num">100%</span>
+              </div>
+              <div class="dock-groups">
+                <div style="font-size:11px; line-height:1.5; color:#C8C3B5;">
+                  Chaque projet ouvert dans <strong>ZenRay Assets</strong> devient automatiquement une carte Champion.<br/><br/>
+                  1. Tu produis le matin (créneau <strong>Plan</strong>).<br/>
+                  2. Tu publies une capture via <strong>PostKit</strong> (débloque le coffre cyan).<br/>
+                  3. Tu encaisses soit un <strong>Contrat (312,50 €)</strong>, soit des ventes <strong>ZenRayStudio</strong>.
+                </div>
+              </div>
+              <div class="dock-bottom-bar">
+                <span>16 Assets</span>
+                <span class="num">+6 450 €</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         DESIGN C : GRAND-LIVRE VICTORY 10 COLONNES EXCEL + MODALE FACTURE PDF (IMGLOL6 + IMGLOL2)
+         ========================================================= -->
+    <section class="design-section" id="secC" onclick="pickDesign('C')">
+      <div class="section-head">
+        <div class="section-head-left">
+          <span class="lol-badge">C</span>
+          <h2 class="section-title">Design C · Grand-Livre Comptable « VICTORY » Excel/CSV &amp; Générateur de Facture PDF (imglol6 + imglol2 0.999)</h2>
+          <span class="section-sub">Tableur multi-colonnes fidèle à l'écran de fin de partie VICTORY (Brut HT, URSSAF, Net, Statut, Projet Asset) + Modale Hextech de création de facture PDF.</span>
+        </div>
+      </div>
+
+      <div class="zr-client-shell" style="min-height: 470px;">
+        <aside class="zr-sidebar">
+          <div>
+            <div class="mac-dots">
+              <span style="background:#FF5F56;"></span>
+              <span style="background:#FFBD2E;"></span>
+              <span style="background:#27C93F;"></span>
+            </div>
+            <div class="zr-nav">
+              <div class="zr-nav-item"><span>Create</span></div>
+              <div class="zr-nav-item"><span>Plan</span></div>
+              <div class="zr-nav-item"><span>Assets</span></div>
+              <div class="zr-nav-item active"><span>Money</span><span class="num">Excel</span></div>
+            </div>
+          </div>
+          <div class="zr-side-foot">Compta &amp; Factures</div>
+        </aside>
+
+        <div class="lol-client-body" style="grid-template-rows: 1fr;">
+          <div class="victory-stage">
+            <!-- W14-W15 : Tableur multi-colonnes VICTORY (imglol6.jpg) -->
+            <div>
+              <div class="victory-banner">
+                <div>
+                  <div class="victory-word">VICTORY · GRAND-LIVRE OCTOBRE <span class="num">2026</span></div>
+                  <div style="font-size:11.5px; color:#A09B8C;">Synchronisé avec ZenRay Plan, ZenRay Assets &amp; Export Excel (.CSV / .XLSX)</div>
+                </div>
+                <div style="display:flex; gap:8px;">
+                  <button class="hex-chip" onclick="event.stopPropagation(); exportCsvLedger()">EXPORTER EXCEL (.CSV)</button>
+                </div>
+              </div>
+
+              <table class="lol-ledger-table">
+                <thead>
+                  <tr>
+                    <th>Pièce</th>
+                    <th>Date</th>
+                    <th>Client / Source</th>
+                    <th>Asset Lié</th>
+                    <th>Brut HT</th>
+                    <th>URSSAF</th>
+                    <th>Net Poche</th>
+                    <th>Statut</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="group-row">
+                    <td colspan="8">▼ CONTRATS FREELANCE TECH ART (OBJECTIF : 4 CONTRATS / SEMAINE = 1 250 € NET)</td>
+                  </tr>
+                  <tr class="highlight-me">
+                    <td class="num">FA-041</td>
+                    <td class="num">14 Oct</td>
+                    <td>Studio AA · Houdini</td>
+                    <td>Modular Cliff HDA</td>
+                    <td class="num">444,16 €</td>
+                    <td class="num">-94,16 €</td>
+                    <td class="num" style="color:#C8AA6E;">+350,00 €</td>
+                    <td style="color:#1EA866;">Payée · PDF</td>
+                  </tr>
+                  <tr>
+                    <td class="num">FA-042</td>
+                    <td class="num">16 Oct</td>
+                    <td>Tech Art · Copernicus</td>
+                    <td>Peeling Wood PBR</td>
+                    <td class="num">396,57 €</td>
+                    <td class="num">-84,07 €</td>
+                    <td class="num" style="color:#C8AA6E;">+312,50 €</td>
+                    <td style="color:#1EA866;">Payée · PDF</td>
+                  </tr>
+                  <tr>
+                    <td class="num">FA-043</td>
+                    <td class="num">17 Oct</td>
+                    <td>Indie Studio · UE5</td>
+                    <td>APEX Rig Pipeline</td>
+                    <td class="num">348,98 €</td>
+                    <td class="num">-73,98 €</td>
+                    <td class="num" style="color:#C8AA6E;">+275,00 €</td>
+                    <td style="color:#0AC8B9;">Envoyée · PDF</td>
+                  </tr>
+                  <tr>
+                    <td class="num">FA-044</td>
+                    <td class="num">18 Oct</td>
+                    <td>Contrat #4 Semaine 42</td>
+                    <td>Shader / HDA Custom</td>
+                    <td class="num">396,57 €</td>
+                    <td class="num">-84,07 €</td>
+                    <td class="num" style="color:#0AC8B9;">+312,50 €</td>
+                    <td style="color:#F0E6D2;">Prête à émettre</td>
+                  </tr>
+                  <tr class="group-row">
+                    <td colspan="8">▼ BOUTIQUE ZENRAY.STUDIO (REVENUS SCALABLES &amp; PASSIFS)</td>
+                  </tr>
+                  <tr>
+                    <td class="num">ST-108</td>
+                    <td class="num">15 Oct</td>
+                    <td>zenray.studio (×2)</td>
+                    <td>Peeling Wood Pack</td>
+                    <td class="num">124,36 €</td>
+                    <td class="num">-26,36 €</td>
+                    <td class="num" style="color:#C8AA6E;">+98,00 €</td>
+                    <td style="color:#1EA866;">Encaissé Stripe</td>
+                  </tr>
+                  <tr>
+                    <td class="num">ST-109</td>
+                    <td class="num">18 Oct</td>
+                    <td>zenray.studio (×1)</td>
+                    <td>Temple Roof HDA</td>
+                    <td class="num">104,06 €</td>
+                    <td class="num">-22,06 €</td>
+                    <td class="num" style="color:#C8AA6E;">+82,00 €</td>
+                    <td style="color:#1EA866;">Encaissé Stripe</td>
+                  </tr>
+                  <tr class="highlight-me">
+                    <td colspan="4"><strong>TOTAL SEMAINE 42 (4 CONTRATS + BOUTIQUE)</strong></td>
+                    <td class="num"><strong>1 814,70 €</strong></td>
+                    <td class="num"><strong>-384,70 €</strong></td>
+                    <td class="num" style="color:#0AC8B9;"><strong>+1 430,00 € NET</strong></td>
+                    <td><strong>114% CIBLE</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- W05 : Modale Hextech à double cadre biseauté (imglol2.jpg) : Générateur de Facture PDF -->
+            <div class="hextech-modal" onclick="event.stopPropagation()">
+              <div class="modal-title">ÉMETTRE UNE FACTURE PDF · HEXTECH LEDGER</div>
+
+              <div class="f-row">
+                <span>NUMÉRO &amp; CLIENT DESTINATAIRE</span>
+                <input class="f-input" id="invClient" value="FA-2026-044 · Studio / Client Tech Art" />
+              </div>
+
+              <div class="f-row">
+                <span>PROJET ZENRAY ASSETS FACTURÉ</span>
+                <input class="f-input" id="invAsset" value="zenray-houdini · Pack HDA &amp; Copernicus PBR" />
+              </div>
+
+              <div class="f-row">
+                <span>MONTANT BRUT HT (€) → CALCUL NET APRÈS URSSAF (<span class="num" id="lblUrssaf">21.2%</span>)</span>
+                <input class="f-input num" id="invBrut" type="number" value="396.57" oninput="recalcInvoice()" />
+              </div>
+
+              <div style="background:#01080E; border:1px solid rgba(10,200,185,0.45); padding:10px 12px; display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:11.5px; color:#0AC8B9;">NET DANS TA POCHE (CIBLE 312,50 €) :</span>
+                <strong class="num" id="invNetOut" style="font-size:17px; color:#F0E6D2;">+312,50 € NET</strong>
+              </div>
+
+              <div class="modal-actions">
+                <button class="hex-chip active" onclick="playHexSound('click')">GÉNÉRER FACTURE PDF</button>
+                <button class="hex-copy-btn" onclick="playHexSound('victory')">ENCAISSER (+SON OR)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         TUTORIEL COMPLET : POURQUOI CHAQUE WIDGET EXISTE & COMMENT L'UTILISER
+         ========================================================= -->
+    <section class="design-section" id="secTutorial">
+      <div class="section-head">
+        <div class="section-head-left">
+          <span class="lol-badge">?</span>
+          <h2 class="section-title">Tutoriel ZenRay Money · Pourquoi chaque widget existe &amp; Rituel en 3 minutes</h2>
+          <span class="section-sub">Conçu pour transformer chaque bloc de ZenRay Plan et chaque projet de ZenRay Assets en 1 250 € net par semaine (5 000 € net par mois).</span>
+        </div>
+      </div>
+
+      <div class="tutorial-grid">
+        <div class="tut-card">
+          <span class="tut-step">1 · CADRAN RADIAL 1 250 € (imglol3)</span>
+          <div class="tut-title">Rendre le cap hebdomadaire magnétique</div>
+          <p class="tut-body">
+            Au lieu d'un objectif mensuel lointain (<span class="num">5 000 €</span>), le cadran Hextech découpe la cible en <span class="num">1 250 € net / semaine</span>. Chaque contrat verrouillé fait avancer l'arc cyan de <span class="num">25%</span> avec un son Hextech.
+          </p>
+        </div>
+
+        <div class="tut-card">
+          <span class="tut-step">2 · 4 SLOTS CONTRATS (imglol3)</span>
+          <div class="tut-title">4 Contrats × 312,50 € + Boutique</div>
+          <p class="tut-body">
+            Comme les 5 joueurs d'une équipe LoL, la colonne de gauche affiche tes <span class="num">4</span> créneaux de contrats de la semaine. Un slot en « Picking... » te rappelle immédiatement qu'il reste un contrat à closer ou livrer.
+          </p>
+        </div>
+
+        <div class="tut-card">
+          <span class="tut-step">3 · DOCK PLAN &amp; GOOGLE CAL (imglol1)</span>
+          <div class="tut-title">Relier le temps prévu à l'argent réel</div>
+          <p class="tut-body">
+            Le dock droit de <span class="num">236px</span> lit directement tes blocs <strong>ZenRay Plan</strong> et <strong>Google Calendar</strong> : production le matin, publication PostKit à midi, japonais l'après-midi, sport à <span class="num">17h</span>.
+          </p>
+        </div>
+
+        <div class="tut-card">
+          <span class="tut-step">4 · GRILLE ASSETS &amp; EXCEL VICTORY (imglol4/6)</span>
+          <div class="tut-title">Transformer chaque Asset en revenu &amp; facture</div>
+          <p class="tut-body">
+            Chaque projet <strong>ZenRay Assets</strong> affiche son coffre PostKit et ses euros générés. En un clic, la modale génère la <strong>Facture PDF</strong>, calcule l'URSSAF et ajoute la ligne au <strong>Grand-Livre Excel</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+  let chosen = 'A';
+  let contract4Locked = false;
+
+  // Synthétiseur WebAudio temps réel doublé des fichiers WAV générés dans ./sfx/
+  let audioCtx = null;
+  function playHexSound(kind) {
+    try {
+      const map = {
+        hover: './sfx/sfx-hover.wav',
+        click: './sfx/sfx-click.wav',
+        lockin: './sfx/sfx-lockin.wav',
+        victory: './sfx/sfx-victory-gold.wav'
+      };
+      if (map[kind]) {
+        const a = new Audio(map[kind]);
+        a.volume = 0.65;
+        a.play().catch(() => {});
+      }
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      if (kind === 'hover') {
+        osc.frequency.setValueAtTime(2200, now);
+        osc.frequency.exponentialRampToValueAtTime(3300, now + 0.06);
+        gain.gain.setValueAtTime(0.04, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+        osc.start(now);
+        osc.stop(now + 0.06);
+      }
+    } catch (e) {}
+  }
+
+  function pickDesign(letter) {
+    chosen = letter;
+    playHexSound('click');
+    ['A', 'B', 'C'].forEach((k) => {
+      document.getElementById('sec' + k).classList.toggle('selected', k === letter);
+      document.getElementById('btn' + k).classList.toggle('active', k === letter);
+    });
+  }
+
+  function setV(prop, val, id) {
+    document.documentElement.style.setProperty(prop, val);
+    document.getElementById(id).textContent = val;
+  }
+
+  function updateUrssaf(val) {
+    document.documentElement.style.setProperty('--urssaf-rate', val);
+    document.getElementById('vUrssaf').textContent = val + '%';
+    document.getElementById('lblUrssaf').textContent = val + '%';
+    recalcInvoice();
+  }
+
+  function recalcInvoice() {
+    const brut = parseFloat(document.getElementById('invBrut').value) || 0;
+    const rate = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--urssaf-rate')) || 21.2;
+    const net = brut * (1 - rate / 100);
+    document.getElementById('invNetOut').textContent = '+' + net.toFixed(2).replace('.', ',') + ' € NET';
+  }
+
+  function lockInContract4() {
+    playHexSound('victory');
+    contract4Locked = !contract4Locked;
+    if (contract4Locked) {
+      document.getElementById('c4Status').textContent = 'VERROUILLÉ · FA-2026-044 ÉMISE';
+      document.getElementById('c4Status').style.color = '#1EA866';
+      document.getElementById('dialEuroText').textContent = '1 430,00 €';
+      document.getElementById('topWeeklyNet').textContent = '1 430,00 €';
+      document.getElementById('dialPctText').textContent = '114%';
+      document.getElementById('weeklyBarFill').style.width = '100%';
+      document.getElementById('dialArc').setAttribute('stroke-dasharray', '766 766');
+    } else {
+      document.getElementById('c4Status').textContent = 'PICKING... · CRÉNEAU PLAN 08:30';
+      document.getElementById('c4Status').style.color = '#0AC8B9';
+      document.getElementById('dialEuroText').textContent = '1 117,50 €';
+      document.getElementById('topWeeklyNet').textContent = '1 117,50 €';
+      document.getElementById('dialPctText').textContent = '89%';
+      document.getElementById('weeklyBarFill').style.width = '89%';
+      document.getElementById('dialArc').setAttribute('stroke-dasharray', '682 766');
+    }
+  }
+
+  function exportCsvLedger() {
+    playHexSound('click');
+    const rows = [
+      ['Piece', 'Date', 'Client_Source', 'Asset_ZenRay', 'Brut_HT', 'URSSAF', 'Net_Poche', 'Statut'],
+      ['FA-2026-041', '2026-10-14', 'Studio AA Houdini', 'Modular Cliff HDA', '444.16', '-94.16', '350.00', 'Payee'],
+      ['FA-2026-042', '2026-10-16', 'Tech Art Copernicus', 'Peeling Wood PBR', '396.57', '-84.07', '312.50', 'Payee'],
+      ['FA-2026-043', '2026-10-17', 'Indie Studio UE5', 'APEX Rig Pipeline', '348.98', '-73.98', '275.00', 'Envoyee'],
+      ['FA-2026-044', '2026-10-18', 'Contrat 4 Semaine 42', 'Shader HDA Custom', '396.57', '-84.07', '312.50', 'Prete'],
+      ['ST-2026-108', '2026-10-15', 'ZenRayStudio x2', 'Peeling Wood Pack', '124.36', '-26.36', '98.00', 'Encaisse'],
+      ['ST-2026-109', '2026-10-18', 'ZenRayStudio x1', 'Temple Roof HDA', '104.06', '-22.06', '82.00', 'Encaisse']
+    ];
+    const csv = rows.map(r => r.join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'ZenRay-Money-Grand-Livre-Semaine-42.csv';
+    a.click();
+  }
+
+  function copyChoice() {
+    const cs = getComputedStyle(document.documentElement);
+    const txt = [
+      'Design ZenRay Money v2 choisi : ' + chosen,
+      'font=Beaufort for LoL + AnthropicSerif Medium 500',
+      'dial=' + cs.getPropertyValue('--hex-dial-size').trim(),
+      'urssaf=' + cs.getPropertyValue('--urssaf-rate').trim() + '%',
+      'target=1250€/sem (4 contrats + boutique) = 5000€/mois net'
+    ].join(' | ');
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt);
+    const b = document.getElementById('copyBtn');
+    b.textContent = 'Copié : ' + txt;
+    setTimeout(() => { b.textContent = 'Copier le choix'; }, 2400);
+  }
+</script>
+</body>
+</html>
