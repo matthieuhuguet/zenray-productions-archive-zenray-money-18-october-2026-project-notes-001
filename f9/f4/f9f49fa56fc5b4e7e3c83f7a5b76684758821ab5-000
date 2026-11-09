@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
  "projectId": "zenray-money-18-october-2026",
- "scannedAt": "2026-11-09T06:29:53.699Z",
+ "scannedAt": "2026-11-09T12:30:51.428Z",
  "conversations": [
   {
    "projectId": "zenray-money-18-october-2026",
@@ -14,26 +14,10 @@
    "conversationId": "gemini:677fd6b2-6c8d-446c-83ce-d37211c3efa9",
    "provider": "gemini",
    "sessionId": "677fd6b2-6c8d-446c-83ce-d37211c3efa9",
-   "title": "Conversation Gemini 677fd6b2",
-   "updatedAt": "2026-10-18T21:35:49.212Z",
+   "title": "désinstalle pika l'app qui permet de faire en sorte d'avoir une pipette et get la couleur et fais en sorte soit de coder l'app la plus leigh",
+   "updatedAt": "2026-10-18T21:35:04.197544+00:00",
    "bytes": 24936448,
    "boundProject": "zenray-color-picker-18-october-2026"
-  },
-  {
-   "projectId": "zenray-money-18-october-2026",
-   "lines": 2,
-   "work": 1,
-   "prompts": 0,
-   "first": "2026-11-02T05:09:36.430Z",
-   "last": "2026-11-02T05:09:36.433Z",
-   "strength": "weak",
-   "conversationId": "codex:01a19aa8-bbbb-7421-a76c-4691649a88ac",
-   "provider": "codex",
-   "sessionId": "01a19aa8-bbbb-7421-a76c-4691649a88ac",
-   "title": "Conversation codex 01a19aa8",
-   "updatedAt": "2026-11-02T05:15:11.876Z",
-   "bytes": 1615292,
-   "boundProject": null
   },
   {
    "projectId": "zenray-money-18-october-2026",
